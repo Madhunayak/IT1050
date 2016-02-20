@@ -5,24 +5,44 @@
 
 
         public string firstname, lastname;
-            public int age;
+        public int age;
         public person spouse;
-      public static double sumofallages;
+
+        public static double sumofallages;
         public static int p = 0;
         public string spousename;
-        
-        
-        
+        bool ans;
 
+        public void getinformation()
+
+        {
+            System.Console.WriteLine("First name? ");
+            this.firstname = System.Console.ReadLine();
+            System.Console.WriteLine("Last name? ");
+            this.lastname = System.Console.ReadLine();
+            System.Console.WriteLine("Age? ");
+            this.age = int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("what is ur marrital status : married?");
+            ans = bool.Parse(System.Console.ReadLine());
+
+            if (ans == true)
+            {
+                System.Console.WriteLine("spouse First name? ");
+                this.spouse.firstname = System.Console.ReadLine();
+                System.Console.WriteLine("spouse Age? ");
+                this.spouse.age = int.Parse(System.Console.ReadLine());
+                this.spousename = this.spouse.firstname + " " + this.lastname;
+
+            }
+            else
+            {
+                this.spouse.age = 0;
+                this.spousename = "no spouse";
+
+            }
+        }
             public string getfullname()
         {
-            //System.Console.WriteLine("Enter ur first name  ");
-           // this.firstname = System.Console.ReadLine();
-           // System.Console.WriteLine("Enter ur lastname ");
-           // this.lastname = System.Console.ReadLine();
-           
-           // System.Console.WriteLine("Enter ur age ");
-            //this.age =int.Parse( System.Console.ReadLine());
             return this.firstname + " " + this.lastname;
         }
 
