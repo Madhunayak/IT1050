@@ -2,62 +2,72 @@
 {
     class person
     {
-        
 
-        public string firstname, lastname,spousefirstname;
-         public int age,spouseage;
+
+        public string firstname, lastname;
+        public int age;
+        public person spouse;
+
         public static double sumofallages;
-        public static int p1 = 0;
-        
-        
-
-            public void getinformation()
-        {
-            System.Console.WriteLine("Enter ur first name  ");
-            this.firstname = System.Console.ReadLine();
-            System.Console.WriteLine("Enter ur lastname ");
-            this.lastname = System.Console.ReadLine();
-            System.Console.WriteLine("Enter ur age ");
-            this.age =int.Parse( System.Console.ReadLine());
-            System.Console.WriteLine("Enter ur spouse firstname ");
-            this.spousefirstname = System.Console.ReadLine();
-            System.Console.WriteLine("Enter ur spouseage ");
-            this.spouseage = int.Parse(System.Console.ReadLine());
-
-        }
-
-        public double totalages()
-        {
-            int totalage = this.age + this.spouseage;
-            return totalage;
-        }
-        public string getfullname()
-        
-
-        {
-            return this.firstname + "   " + this.lastname;
-             
-
-        }
-        public string spousefullName()
-        {
-            return this.spousefirstname + "  " + this.lastname;
-
-        }
-
+        public static int p = 0;
+        public string spousename;
+        bool ans;
        
+        public void getinformation()
+
+        {
+            System.Console.WriteLine("First name? ");
+            this.firstname = System.Console.ReadLine();
+            System.Console.WriteLine("Last name? ");
+            this.lastname = System.Console.ReadLine();
+            System.Console.WriteLine("Age? ");
+            this.age = int.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("what is ur marrital status : married?");
+            ans = bool.Parse(System.Console.ReadLine());
+            sumofallages += this.age;
+
+            if (ans == true)
+            {
+                System.Console.WriteLine("spouse First name? ");
+                this.spouse.firstname = System.Console.ReadLine();
+                System.Console.WriteLine("spouse Age? ");
+                this.spouse.age = int.Parse(System.Console.ReadLine());
+                this.spousename = this.spouse.firstname + " " + this.lastname;
+
+            }
+            else
+            {
+                this.age = 0;
+                this.spousename = "no spouse";
+
+            }
+            sumofallages += this.spouse.age;
+        }
+
+        public string getfullname()
+        {
+            return this.firstname + " " + this.lastname;
+           // sumofallages = +this.age;
+        }
+       // public double sum()
+        //{
+           // sumofallages +=this.age;
+       // }
+
         public void printNameandAge()
         {
-            p1++;
-            System.Console.WriteLine("person"+p1+"'s "+"name is : " + this.getfullname());
-            System.Console.WriteLine("person"+p1+"'s "+" age is : " + this.age);
-            System.Console.WriteLine("person"+p1+"'s "+" spouse name is : " + this.spousefullName());
-            System.Console.WriteLine("perrson" + p1 + "'s " + "spouse age is : " + this.spouseage + "\n");
+            p++;
+            System.Console.WriteLine("person" + p + "'s " + "name is : " + this.getfullname());
+            System.Console.WriteLine("person" + p + "'s " + " age is : " + this.age);
+            System.Console.WriteLine("person" + p + "'s " + "spouse name is : " +this.spousename);
+            System.Console.WriteLine("person" + p + "'s " + "spouse age is : " + this.spouse.age);
 
         }
+
+    }  
         
             
         }
         
     
-}
+
